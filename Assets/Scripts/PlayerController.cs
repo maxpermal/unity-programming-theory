@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
 
     ActorProfile profile;
 
-    private Rigidbody playerRB;
+    private Rigidbody body;
     private Vector3 direction;
 
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        playerRB = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
         profile = gameObject.GetComponent<ActorProfile>();
     }
 
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartGame()
     {
-        playerRB.velocity = Vector3.zero;
+        body.velocity = Vector3.zero;
         profile.StartGame();
     }
 
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-        playerRB.MovePosition(playerRB.position + vertical * Vector3.forward * profile.speed * Time.deltaTime + horizontal * Vector3.right * profile.speed * Time.deltaTime);
+        body.MovePosition(body.position + vertical * Vector3.forward * profile.speed * Time.deltaTime + horizontal * Vector3.right * profile.speed * Time.deltaTime);
         LastDirection(horizontal, vertical);
     }
 

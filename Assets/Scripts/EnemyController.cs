@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
 
     ActorProfile profile;
 
-    Rigidbody rbEnemy;
+    Rigidbody body;
     
     [SerializeField] float durationCooldown = 5f;
     [SerializeField] float cooldownShoot;
@@ -24,9 +24,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        rbEnemy = gameObject.GetComponent<Rigidbody>();
-        mcollision = gameObject.GetComponent<ObjectCollision>();
+        body = gameObject.GetComponent<Rigidbody>();
         profile = gameObject.GetComponent<ActorProfile>();
+        mcollision = gameObject.GetComponent<ObjectCollision>();
         cooldownShoot = 0;
     }
 
@@ -38,10 +38,10 @@ public class EnemyController : MonoBehaviour
             return;
         }
         Vector3 direction = (gameManager.player.transform.position - transform.position).normalized;
-        var isRay = Physics.Raycast(rbEnemy.position, rbEnemy.transform.TransformDirection(direction), distMinDetection);
+        var isRay = Physics.Raycast(body.position, body.transform.TransformDirection(direction), distMinDetection);
         if (isRay == false)
         {
-            rbEnemy.MovePosition(rbEnemy.position + direction * profile.speed * Time.deltaTime);
+            body.MovePosition(body.position + direction * profile.speed * Time.deltaTime);
         }
 
         Shoot(direction);
