@@ -8,9 +8,7 @@ public class VictoryEvent : EventManager.GameEvent
     public VictoryEvent() => Name = "Victory event";
 
     public override void Execute()
-    {
-        base.Execute();
-        
+    {   
         SpawnManager spawnManager = GameManager.instance.GetComponent<SpawnManager>();
         spawnManager.isEnable = false;
 

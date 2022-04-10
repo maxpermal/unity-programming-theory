@@ -11,7 +11,6 @@ public class DestroyBulletEvent : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         bullet.GetComponent<BulletController>().OnDestroy();
         GameObject.Destroy(bullet);
     }

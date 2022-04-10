@@ -11,7 +11,6 @@ public class StartSceneEvent : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         GameManager.instance.LoadAScene(scene);
     }
 }

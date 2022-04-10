@@ -9,7 +9,6 @@ public class GameOverEvent : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         GameObject gameover = GameObject.Find("UICanvas");
         gameover.GetComponent<ActiveDialogBox>().SetActive("gameover", true);
     }

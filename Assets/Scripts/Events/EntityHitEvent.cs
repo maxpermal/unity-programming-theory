@@ -12,7 +12,6 @@ public class EntityHitEvent : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         var entityProfile = entity.GetComponent<ActorProfile>();
         var otherProfile = other.GetComponent<ActorProfile>();
         entityProfile.Hit(otherProfile);

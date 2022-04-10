@@ -11,7 +11,6 @@ public class RestartGameEvent : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         GameManager.instance.StartGame();
     }
 }

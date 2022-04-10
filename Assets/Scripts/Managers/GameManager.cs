@@ -31,11 +31,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(currentScene == "MENU")
+        if(currentScene.ToUpper() == "MENU")
         {
             StartMenu();
         }
-        else if (currentScene == "SCENE1")
+        else if (currentScene.ToUpper() == "SCENE1")
         {
             StartGame();
         }
@@ -104,11 +104,11 @@ public class GameManager : MonoBehaviour
     public void LoadAScene(string name)
     {
         currentScene = name;
-        if(currentScene == "SCENE1")
+        if(currentScene.ToUpper() == "SCENE1")
         {
             SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
-        else if (currentScene == "MENU")
+        else if (currentScene.ToUpper() == "MENU")
         {
             SceneManager.LoadScene("Menu", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }

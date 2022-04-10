@@ -3042,6 +3042,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1079221130, guid: 489e723fa378c0742a7a2f895bb27096, type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079221130, guid: 489e723fa378c0742a7a2f895bb27096, type: 3}
+      propertyPath: durationCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1390138191119994230, guid: 489e723fa378c0742a7a2f895bb27096, type: 3}
       propertyPath: m_Name
       value: Player

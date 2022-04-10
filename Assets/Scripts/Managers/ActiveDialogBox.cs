@@ -10,9 +10,9 @@ public class ActiveDialogBox : MonoBehaviour
 
     public void SetActive(string which, bool value)
     {
-        switch(which)
+        switch(which.ToLower())
         {
-            case "gamever":
+            case "gameover":
                 gameover.SetActive(value);
                 break;
             case "victory":

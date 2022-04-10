@@ -11,7 +11,6 @@ public class EventTest : EventManager.GameEvent
 
     public override void Execute()
     {
-        base.Execute();
         Debug.Log("This is a test event");
     }
 
