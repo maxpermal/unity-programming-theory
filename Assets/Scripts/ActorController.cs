@@ -23,7 +23,7 @@ public class ActorController : MonoBehaviour
 
     [SerializeField] protected float durationCooldown = 5f;
     [SerializeField] protected float cooldownShoot;
-    [SerializeField] protected bool canShoot;
+    [SerializeField] protected bool isShooting;
 
 
     // Start is called before the first frame update
@@ -39,6 +39,7 @@ public class ActorController : MonoBehaviour
     {
         direction = Vector3.forward;
         storeDirection = Vector3.zero;
+        isShooting = false;
     }
 
     // Update is called once per frame
@@ -76,7 +77,7 @@ public class ActorController : MonoBehaviour
 
     virtual protected void Shoot(Vector3 shootdir)
     {
-        if (canShoot)
+        if (isShooting == false)
         {
             gameManager.Shoot(gameObject, bullet, shootdir);
             StartCoroutine(ShootCorountine());
@@ -84,14 +85,14 @@ public class ActorController : MonoBehaviour
 
         IEnumerator ShootCorountine()
         {
-            canShoot = false;
+            isShooting = true;
             cooldownShoot = durationCooldown;
             while (cooldownShoot >= 0)
             {
                 cooldownShoot -= Time.deltaTime;
                 yield return null;
             }
-            canShoot = true;
+            isShooting = false;
         }
     }
 }

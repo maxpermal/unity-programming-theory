@@ -8,12 +8,14 @@ public class PlayerController : ActorController
     {
         body.velocity = Vector3.zero;
         profile.StartGame();
-        canShoot = true;
     }
 
     override protected void Update()
     {
-        if (profile.isDead) return;
+        if (profile.isDead)
+        {
+            return;
+        }
         inputs.vertical = Input.GetAxis("Vertical");
         inputs.horizontal = Input.GetAxis("Horizontal");
         inputs.attack = Input.GetKeyDown(KeyCode.LeftControl);
@@ -22,7 +24,10 @@ public class PlayerController : ActorController
 
     override protected void FixedUpdate()
     {
-        if (profile.isDead) return;
+        if (profile.isDead)
+        {
+            return;
+        }
         base.FixedUpdate();
     }
 }
