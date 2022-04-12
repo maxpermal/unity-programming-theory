@@ -72,7 +72,6 @@ public class ActorController : MonoBehaviour
         {
             storeDirection = direction;
         }
-        Debug.Log(storeDirection);
     }
 
     virtual protected void Shoot(Vector3 shootdir)

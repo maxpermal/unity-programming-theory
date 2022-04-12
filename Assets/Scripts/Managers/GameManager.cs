@@ -7,63 +7,48 @@ using Game.Core;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public GameObject player;
     public TextMeshProUGUI scoreText;
     private int score;
+    private GameObject uicanvas;
 
-    SpawnManager spawnManager;
-    GameObject uicanvas;
-
-    public List<string> scencesList;
-    public string currentScene;
+    MainManager mainManager;
 
     void Awake()
     {
-        if(instance == null)
+        Debug.Log("Awake ");
+        if (Instance != null)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
-        spawnManager = GetComponent<SpawnManager>();
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(currentScene.ToUpper() == "MENU")
-        {
-            StartMenu();
-        }
-        else if (currentScene.ToUpper() == "SCENE1")
-        {
-            StartGame();
-        }
-    }
+        mainManager = MainManager.Instance;
 
-    public void StartMenu()
-    {
-
+        Debug.Log("Start Gamemanager : " + mainManager.CurrentScene);
+        StartGame();
     }
 
     public void StartGame()
     {
+        scoreText = GameObject.Find("Score Text ").GetComponent<TextMeshProUGUI>();
         score = 0;
         IncreaseScore(0);
 
         player = GameObject.Find("Player");
         player.GetComponent<PlayerController>().StartGame();
-
-        spawnManager.StartGame();
         
         uicanvas = GameObject.Find("UICanvas");
         uicanvas.GetComponent<ActiveDialogBox>().StartGame();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        EventManager.Tick();
     }
 
     public void IncreaseScore(int amount)
@@ -79,38 +64,5 @@ public class GameManager : MonoBehaviour
         GameObject missile = Instantiate(bullet, pos, src.transform.rotation);
         var bulletc = missile.GetComponent<BulletController>();
         bulletc.Shoot(src, Mathf.Atan2(direction.z, direction.x));
-    }
-
-    public void OnReStartGame()
-    {
-        new RestartGameEventDecorator();
-    }
-
-    public void OnGotoMenu()
-    {
-        new GotoMenuEventDecorator();
-    }
-
-    public void OnStartGame()
-    {
-        new StartScene1EventDecorator();
-    }
-
-    public void OnQuit()
-    {
-        Application.Quit();
-    }
-
-    public void LoadAScene(string name)
-    {
-        currentScene = name;
-        if(currentScene.ToUpper() == "SCENE1")
-        {
-            SceneManager.LoadScene("SampleScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
-        }
-        else if (currentScene.ToUpper() == "MENU")
-        {
-            SceneManager.LoadScene("Menu", UnityEngine.SceneManagement.LoadSceneMode.Single);
-        }
     }
 }

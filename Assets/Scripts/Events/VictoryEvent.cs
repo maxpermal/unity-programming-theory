@@ -9,7 +9,7 @@ public class VictoryEvent : EventManager.GameEvent
 
     public override void Execute()
     {   
-        SpawnManager spawnManager = GameManager.instance.GetComponent<SpawnManager>();
+        SpawnManager spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
         spawnManager.isEnable = false;
 
         GameObject victory = GameObject.Find("UICanvas");
