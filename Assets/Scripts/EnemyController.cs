@@ -47,7 +47,7 @@ public class EnemyController : ActorController
 
     public void RemoveEnemy()
     {
-        gameManager.GetComponent<SpawnManager>().RemoveEnemy(gameObject);
+        gameManager.RemoveEnemy(gameObject);
         gameManager.IncreaseScore(profile.scoreValue);
     }
 }

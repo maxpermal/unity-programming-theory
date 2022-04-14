@@ -30,4 +30,11 @@ public class ActiveDialogBox : MonoBehaviour
         victory.SetActive(false);
         dlgBox.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        gameover.SetActive(false);
+        victory.SetActive(false);
+        dlgBox.SetActive(false);
+    }
 }

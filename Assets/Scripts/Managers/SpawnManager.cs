@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager Instance;
+    // public static SpawnManager Instance;
 
     public GameObject[] boss;
     public GameObject[] enemies;
@@ -19,18 +19,18 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private bool forceNextWave;
     public bool isEnable = false;
 
-    void Awake()
-    {
-        Debug.Log("Awake ");
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+    // void Awake()
+    // {
+    //     Debug.Log("Awake ");
+    //     if (Instance != null)
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    //     Instance = this;
+    //     DontDestroyOnLoad(gameObject);
+    // }
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,7 @@ public class SpawnManager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("Start SpawnManager");
         isEnable = true;
         waveNumber = 0;
 

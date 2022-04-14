@@ -9,6 +9,7 @@ public class GotoMenuEvent : EventManager.GameEvent
 
     public override void Execute()
     {
+        GameManager.Instance.QuitGame();
         MainManager.Instance.LoadAScene("MENU");
     }
 }

@@ -9,8 +9,7 @@ public class VictoryEvent : EventManager.GameEvent
 
     public override void Execute()
     {   
-        SpawnManager spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
-        spawnManager.isEnable = false;
+        SpawnManager.Instance.isEnable = false;
 
         GameObject victory = GameObject.Find("UICanvas");
         victory.GetComponent<ActiveDialogBox>().SetActive("victory", true);

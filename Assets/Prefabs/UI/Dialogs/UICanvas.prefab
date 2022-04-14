@@ -598,8 +598,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3892440380231064435, guid: aa900041e57b6fd41b981f8c336dfff9, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
         m_MethodName: OnGotoMenu
         m_Mode: 1
         m_Arguments:
@@ -732,7 +732,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
         m_MethodName: OnReStartGame
         m_Mode: 1
         m_Arguments:
@@ -1171,8 +1171,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3892440380231064435, guid: aa900041e57b6fd41b981f8c336dfff9, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
         m_MethodName: OnGotoMenu
         m_Mode: 1
         m_Arguments:
@@ -1182,7 +1182,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &8354204781540346413
 GameObject:
   m_ObjectHideFlags: 0

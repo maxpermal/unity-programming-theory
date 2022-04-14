@@ -7,7 +7,7 @@ using Game.Core;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    // public static GameManager Instance;
 
     public GameObject player;
     public TextMeshProUGUI scoreText;
@@ -15,33 +15,51 @@ public class GameManager : MonoBehaviour
     private GameObject uicanvas;
 
     MainManager mainManager;
+    SpawnManager spawnManager;
 
-    void Awake()
+    // void Awake()
+    // {
+    //     Debug.Log("Awake ");
+    //     if (Instance != null)
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
+
+    //     Instance = this;
+    //     DontDestroyOnLoad(gameObject);
+    // }
+
+    void OnEnable()
     {
-        Debug.Log("Awake ");
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        loadedAtStart = false;
+    }
+
+    public void Start()
     {
         mainManager = MainManager.Instance;
-
-        Debug.Log("Start Gamemanager : " + mainManager.CurrentScene);
-        StartGame();
+        spawnManager = mainManager.gameObject.GetComponent<SpawnManager>();
     }
 
     public void StartGame()
     {
-        scoreText = GameObject.Find("Score Text ").GetComponent<TextMeshProUGUI>();
+        Debug.Log("Start Gamemanager : " + mainManager.CurrentScene);
+
+        if(mainManager.CurrentScene == "MENU") return;
+        
         score = 0;
+        scoreText = GameObject.Find("Score Text ").GetComponent<TextMeshProUGUI>();
         IncreaseScore(0);
 
         player = GameObject.Find("Player");
@@ -49,6 +67,23 @@ public class GameManager : MonoBehaviour
         
         uicanvas = GameObject.Find("UICanvas");
         uicanvas.GetComponent<ActiveDialogBox>().StartGame();
+
+        spawnManager.StartGame();
+    }
+
+    bool loadedAtStart = false;
+    void Update()
+    {
+        if(loadedAtStart == false)
+        {       
+            StartGame();
+            loadedAtStart = true;
+        }
+    }
+
+    public void QuitGame()
+    {
+        uicanvas.GetComponent<ActiveDialogBox>().QuitGame();
     }
 
     public void IncreaseScore(int amount)
@@ -64,5 +99,15 @@ public class GameManager : MonoBehaviour
         GameObject missile = Instantiate(bullet, pos, src.transform.rotation);
         var bulletc = missile.GetComponent<BulletController>();
         bulletc.Shoot(src, Mathf.Atan2(direction.z, direction.x));
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        spawnManager.RemoveEnemy(enemy);
+    }
+
+    public void LoadAScene(string name)
+    {
+        throw new System.NotImplementedException();
     }
 }

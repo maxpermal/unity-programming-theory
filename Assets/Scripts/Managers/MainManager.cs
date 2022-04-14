@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Game.Core;
 
-public class MainManager : MonoBehaviour
+public class MainManager : MonoBehaviour, IUiHandler
 {
     public static MainManager Instance;
-
-    SpawnManager spawnManager;
 
     public List<string> scencesList;
     [SerializeField] string currentScene;
@@ -27,10 +25,14 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    GameManager gameManager;
+    SpawnManager spawnManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        spawnManager = SpawnManager.Instance;
+        gameManager = GetComponent<GameManager>();
+        spawnManager = GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
