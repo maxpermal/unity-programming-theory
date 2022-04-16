@@ -26,17 +26,13 @@ public class ActorController : MonoBehaviour
     [SerializeField] protected bool isShooting;
 
 
-    // Start is called before the first frame update
-    virtual protected void Awake()
+    virtual protected void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = MainManager.Instance.gameManager;
         body = gameObject.GetComponent<Rigidbody>();
         profile = gameObject.GetComponent<ActorProfile>();
         inputs = new ActorInput();
-    }
 
-    virtual protected void Start()
-    {
         direction = Vector3.forward;
         storeDirection = Vector3.zero;
         isShooting = false;

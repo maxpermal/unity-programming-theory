@@ -5,8 +5,6 @@ using Game.Core;
 
 public class BulletController : MonoBehaviour
 {
-    private GameManager gameManager;
-    
     [SerializeField] private float duration;
     public float Duration => duration;
 
@@ -23,7 +21,6 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         TransformationEditorAdaptator();
     }
 

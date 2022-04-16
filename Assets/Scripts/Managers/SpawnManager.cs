@@ -18,6 +18,8 @@ public class SpawnManager : MonoBehaviour
     int bossNumber = 0;
     [SerializeField] private bool forceNextWave;
     public bool isEnable = false;
+    MainManager mainManager;
+    GameManager gameManager;
 
     // void Awake()
     // {
@@ -35,22 +37,32 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("SpawnManager.Start");
+        mainManager = MainManager.Instance;
+        gameManager = mainManager.gameObject.GetComponent<GameManager>();
         isEnable = false;
     }
 
     public void StartGame()
     {
-        Debug.Log("Start SpawnManager");
+        Debug.Log("SpawnManager.StartGame");
         isEnable = true;
         waveNumber = 0;
 
         SetPlayerPositionInWave();
 
-        ClearEnemiesList();
         if (IsInvoking("SpawnAllEnemiesForWave") == false)
         {
             InvokeRepeating("SpawnAllEnemiesForWave", 2, 2);
         }
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("SpawnManager.QuitGame");
+        isEnable = false;
+        CancelInvoke("SpawnAllEnemiesForWave");
+        ClearEnemiesList();
     }
 
     #region start game private methods

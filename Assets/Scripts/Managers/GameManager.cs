@@ -30,59 +30,61 @@ public class GameManager : MonoBehaviour
     //     DontDestroyOnLoad(gameObject);
     // }
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    // void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
 
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // void OnDisable()
+    // {
+    //     SceneManager.sceneLoaded -= OnSceneLoaded;
+    // }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        loadedAtStart = false;
-    }
+    // void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     Debug.Log("OnSceneLoaded: " + scene.name);
+    //     loadedAtStart = false;
+    // }
 
     public void Start()
     {
+        Debug.Log("Gamemanager.Start");
         mainManager = MainManager.Instance;
         spawnManager = mainManager.gameObject.GetComponent<SpawnManager>();
     }
 
     public void StartGame()
     {
-        Debug.Log("Start Gamemanager : " + mainManager.CurrentScene);
+        Debug.Log("Gamemanager.StartGame : " + mainManager.CurrentScene);
 
-        if(mainManager.CurrentScene == "MENU") return;
+        // if(mainManager.CurrentScene == "MENU") return;
         
+        player = GameObject.Find("Player");
+        player.GetComponent<PlayerController>().StartGame();
+  
+        uicanvas = GameObject.Find("UICanvas");
+        uicanvas.GetComponent<ActiveDialogBox>().StartGame();
+
         score = 0;
         scoreText = GameObject.Find("Score Text ").GetComponent<TextMeshProUGUI>();
         IncreaseScore(0);
 
-        player = GameObject.Find("Player");
-        player.GetComponent<PlayerController>().StartGame();
-        
-        uicanvas = GameObject.Find("UICanvas");
-        uicanvas.GetComponent<ActiveDialogBox>().StartGame();
-
-        spawnManager.StartGame();
+        // spawnManager.StartGame();
     }
 
-    bool loadedAtStart = false;
-    void Update()
-    {
-        if(loadedAtStart == false)
-        {       
-            StartGame();
-            loadedAtStart = true;
-        }
-    }
+    // bool loadedAtStart = false;
+    // void Update()
+    // {
+    //     if(loadedAtStart == false)
+    //     {       
+    //         StartGame();
+    //         loadedAtStart = true;
+    //     }
+    // }
 
     public void QuitGame()
     {
+        Debug.Log("Gamemanager.QuitGame");
         uicanvas.GetComponent<ActiveDialogBox>().QuitGame();
     }
 
@@ -104,10 +106,5 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(GameObject enemy)
     {
         spawnManager.RemoveEnemy(enemy);
-    }
-
-    public void LoadAScene(string name)
-    {
-        throw new System.NotImplementedException();
     }
 }
