@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class PlayerController : ActorController
 {
     public void StartGame()
@@ -9,25 +10,12 @@ public class PlayerController : ActorController
         body.velocity = Vector3.zero;
         profile.StartGame();
     }
-
-    override protected void Update()
+    
+    // POLYMORPHISM
+    protected override void UpdateInputs()
     {
-        if (profile.isDead)
-        {
-            return;
-        }
         inputs.vertical = Input.GetAxis("Vertical");
         inputs.horizontal = Input.GetAxis("Horizontal");
         inputs.attack = Input.GetKeyDown(KeyCode.LeftControl);
-        base.Update();
-    }
-
-    override protected void FixedUpdate()
-    {
-        if (profile.isDead)
-        {
-            return;
-        }
-        base.FixedUpdate();
     }
 }

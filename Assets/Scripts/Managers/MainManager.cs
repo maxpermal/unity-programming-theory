@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Game.Core;
+using UnityEditor;
 
 public class MainManager : MonoBehaviour
 {
@@ -40,26 +41,17 @@ public class MainManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("MainManager.OnSceneLoaded: " + scene.name);
-        // switch (scene.name.ToUpper())
-        // {
-        //     case "MENU":
-        //         StartMenu();
-        //         break;
-        //     default:
-        //         StartGame(scene.name);
-        //         break;
-        // }
     }
 
-    public GameManager gameManager { get; private set; }
-    public SpawnManager spawnManager { get; private set; }
+    public GameManager GameMng { get; private set; }
+    public SpawnManager SpawnMng { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("MainManager.Start");
-        gameManager = GetComponent<GameManager>();
-        spawnManager = GetComponent<SpawnManager>();
+        GameMng = GetComponent<GameManager>();
+        SpawnMng = GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -76,15 +68,15 @@ public class MainManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("MainManager.StartGame");
-        gameManager.StartGame();
-        spawnManager.StartGame();
+        GameMng.StartGame();
+        SpawnMng.StartGame();
     }
 
     public void QuitGame()
     {
         Debug.Log("MainManager.QuitGame");
-        spawnManager.QuitGame();
-        gameManager.QuitGame();
+        SpawnMng.QuitGame();
+        GameMng.QuitGame();
     }
 
     public void OnReStartGame()
@@ -108,7 +100,11 @@ public class MainManager : MonoBehaviour
     public void OnQuit()
     {
         Debug.Log("MainManager.OnQuit");
-        Application.Quit();
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
     }
 
     public void LoadAScene(string name)

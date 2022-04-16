@@ -7,9 +7,10 @@ public class VictoryEvent : EventManager.GameEvent
 {
     public VictoryEvent() => Name = "Victory event";
 
+    // ABSTRACTION
     public override void Execute()
     {
-        MainManager.Instance.spawnManager.QuitGame();
+        MainManager.Instance.SpawnMng.QuitGame();
 
         GameObject victory = GameObject.Find("UICanvas");
         victory.GetComponent<ActiveDialogBox>().SetActive("victory", true);

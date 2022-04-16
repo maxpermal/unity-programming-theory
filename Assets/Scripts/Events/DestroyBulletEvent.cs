@@ -9,6 +9,7 @@ public class DestroyBulletEvent : EventManager.GameEvent
 
     public DestroyBulletEvent() => Name = "Destroy bullet event";
 
+    // ABSTRACTION
     public override void Execute()
     {
         bullet.GetComponent<BulletController>().OnDestroy();

@@ -10,6 +10,7 @@ public class EntityHitEvent : EventManager.GameEvent
 
     public EntityHitEvent() => Name = "Entity hit event";
 
+    // ABSTRACTION
     public override void Execute()
     {
         var entityProfile = entity.GetComponent<ActorProfile>();

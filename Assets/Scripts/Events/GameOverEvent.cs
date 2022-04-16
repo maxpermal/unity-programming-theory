@@ -7,6 +7,7 @@ public class GameOverEvent : EventManager.GameEvent
 {
     public GameOverEvent() => Name = "Gameover event";
 
+    // ABSTRACTION
     public override void Execute()
     {
         GameObject gameover = GameObject.Find("UICanvas");

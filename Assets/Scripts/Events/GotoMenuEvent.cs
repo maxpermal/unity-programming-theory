@@ -7,6 +7,7 @@ public class GotoMenuEvent : EventManager.GameEvent
 {
     public GotoMenuEvent() => Name = "Goto menu event";
 
+    // ABSTRACTION
     public override void Execute()
     {
         MainManager.Instance.QuitGame();

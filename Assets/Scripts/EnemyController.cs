@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Core;
 
+// INHERITANCE
 public class EnemyController : ActorController
 {
     ObjectCollision mcollision;
     public float distMinDetection;
     [SerializeField] bool canShoot;
 
-    // Start is called before the first frame update
+    // POLYMORPHISM
     override protected void Start()
     {
         mcollision = gameObject.GetComponent<ObjectCollision>();
@@ -17,14 +18,10 @@ public class EnemyController : ActorController
         base.Start();
     }
 
-    // Update is called once per frame
-    override protected void Update()
+    // POLYMORPHISM
+    protected override void UpdateInputs()
     {
-        if(profile.isDead)
-        {
-            return;
-        }
-        Vector3 direction = (gameManager.player.transform.position - transform.position).normalized;
+        Vector3 direction = (gameManager.Player.transform.position - transform.position).normalized;
         var isRay = Physics.Raycast(body.position, body.transform.TransformDirection(direction), distMinDetection);
         if (isRay == false)
         {
@@ -32,31 +29,21 @@ public class EnemyController : ActorController
             inputs.horizontal = direction.x;
         }
         inputs.attack = canShoot;
-
-        base.Update();
-    }
-
-    override protected void FixedUpdate()
-    {
-        if (profile.isDead)
-        {
-            return;
-        }
-        base.FixedUpdate();
     }
 
     public void RemoveEnemy()
     {
         gameManager.RemoveEnemy(gameObject);
-        gameManager.IncreaseScore(profile.scoreValue);
     }
 }
 
+// INHERITANCE
 public class EnemyHulk : EnemyController
 {
     public EnemyHulk() => type = ActorType.EnemyHulk;
 }
 
+// INHERITANCE
 public class EnemySmall : EnemyController
 {
     public EnemySmall() => type = ActorType.EnemySmall;

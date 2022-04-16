@@ -5,12 +5,15 @@ using Game.Core;
 
 public class BulletController : MonoBehaviour
 {
+    // ENCAPSULATION
     [SerializeField] private float duration;
     public float Duration => duration;
 
+    // ENCAPSULATION
     [SerializeField] float speed;
     public float Speed => speed;
 
+    // ENCAPSULATION
     [SerializeField] GameObject shooter;
     public GameObject Shooter => shooter;
 

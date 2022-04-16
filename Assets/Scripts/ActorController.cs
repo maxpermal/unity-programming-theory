@@ -2,33 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActorController : MonoBehaviour
+public abstract class ActorController : MonoBehaviour
 {
     public GameObject bullet;
 
     protected GameManager gameManager;
+
+    // ENCAPSULATION
     [SerializeField] protected ActorType type;
     public ActorType Type => type;
 
-    protected ActorProfile profile;
+    // ENCAPSULATION
+    protected ActorProfile profile { get; private set; }
+
     protected ActorInput inputs;
 
     protected Rigidbody body;
-    [SerializeField] protected Vector3 direction;
-    [SerializeField] protected Vector3 storeDirection;
-    [SerializeField] protected bool shootInput;
 
+    [SerializeField] protected Vector3 storeDirection;
+
+    // ENCAPSULATION
+    [SerializeField] protected bool shootInput;
     public bool ShootInput => shootInput;
+
+    // ENCAPSULATION
+    [SerializeField] protected Vector3 direction;
     public Vector3 Direction => direction;
 
     [SerializeField] protected float durationCooldown = 5f;
     [SerializeField] protected float cooldownShoot;
     [SerializeField] protected bool isShooting;
 
-
+    // Start is called before the first frame update
     virtual protected void Start()
     {
-        gameManager = MainManager.Instance.gameManager;
+        gameManager = MainManager.Instance.GameMng;
         body = gameObject.GetComponent<Rigidbody>();
         profile = gameObject.GetComponent<ActorProfile>();
         inputs = new ActorInput();
@@ -41,14 +49,25 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
+        if (profile.isDead)
+        {
+            return;
+        }
+        UpdateInputs();
         if(inputs.attack)
         {
             Shoot(storeDirection);
         }
     }
 
+    abstract protected void UpdateInputs();
+
     virtual protected void FixedUpdate()
     {
+        if (profile.isDead)
+        {
+            return;
+        }
         MovePlayer(inputs.vertical, inputs.horizontal);
     }
 

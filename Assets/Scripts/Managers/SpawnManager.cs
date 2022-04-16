@@ -4,35 +4,22 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // public static SpawnManager Instance;
-
-    public GameObject[] boss;
-    public GameObject[] enemies;
-    public float distanceFromPlayer;
+    [SerializeField] GameObject[] boss;
+    [SerializeField] GameObject[] enemies;
+    [SerializeField] float distanceFromPlayer;
 
     GameObject player;
 
-    public int waveNumber = 0;
-    public int enemiesMultiPerWave;
-    List<GameObject> spawnEnemies = new List<GameObject>();
-    int bossNumber = 0;
+    [SerializeField] int waveNumber = 0;
+    [SerializeField] int enemiesMultiPerWave;
+    [SerializeField] int bossNumber = 0;
     [SerializeField] private bool forceNextWave;
+    List<GameObject> spawnEnemies = new List<GameObject>();
+    
     public bool isEnable = false;
+
     MainManager mainManager;
     GameManager gameManager;
-
-    // void Awake()
-    // {
-    //     Debug.Log("Awake ");
-    //     if (Instance != null)
-    //     {
-    //         Destroy(gameObject);
-    //         return;
-    //     }
-
-    //     Instance = this;
-    //     DontDestroyOnLoad(gameObject);
-    // }
 
     // Start is called before the first frame update
     void Start()
@@ -92,7 +79,6 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnAllEnemiesForWave()
     {
-        //Debug.Log("SpawnAllEnemiesForWave");
         if (isEnable == false)
         {
             return;
@@ -107,6 +93,7 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("SpawnAllEnemiesForWave");
         forceNextWave = false;
         waveNumber++;
         SpawnBoss();

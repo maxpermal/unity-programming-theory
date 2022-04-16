@@ -9,6 +9,7 @@ public class RestartGameEvent : EventManager.GameEvent
 
     public RestartGameEvent() => Name = "Restart game event";
 
+    // ABSTRACTION
     public override void Execute()
     {
         MainManager.Instance.QuitGame();

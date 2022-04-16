@@ -43,12 +43,6 @@ public class UIHandler : MonoBehaviour
         gotomenu1Btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnGotoMenu());
         restartBtn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnReStartGame());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 
 

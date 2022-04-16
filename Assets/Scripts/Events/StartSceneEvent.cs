@@ -8,7 +8,8 @@ public class StartSceneEvent : EventManager.GameEvent
     public string scene;
 
     public StartSceneEvent() => Name = "Start game event";
-
+    
+    // ABSTRACTION
     public override void Execute()
     {
         MainManager.Instance.LoadAScene(scene);

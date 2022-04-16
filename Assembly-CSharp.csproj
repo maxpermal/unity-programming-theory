@@ -49,7 +49,7 @@
      <Compile Include="Assets\Scripts\NpcQuest\QuestDialog.cs" />
      <Compile Include="Assets\Scripts\Managers\SpawnManager.cs" />
      <Compile Include="Assets\Scripts\Events\RestartGameEvent.cs" />
-     <Compile Include="Assets\Scripts\Managers\ActiveDialogBox.cs" />
+     <Compile Include="Assets\Scripts\Scenes\ActiveDialogBox.cs" />
      <Compile Include="Assets\Scripts\Managers\MainManager.cs" />
      <Compile Include="Assets\Scripts\NpcQuest\ActiveCanvasOnTrigger.cs" />
      <Compile Include="Assets\Scripts\Events\DestroyBulletEvent.cs" />
@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\ActorProfile.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
-     <Compile Include="Assets\Scripts\Managers\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\ActorController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
