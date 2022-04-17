@@ -9,6 +9,8 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject gotomenuBtn;
     [SerializeField] GameObject gotomenu1Btn;
     [SerializeField] GameObject restartBtn;
+    [SerializeField] GameObject gotomenu2Btn;
+    [SerializeField] GameObject backBtn;
     public enum SceneId
     { 
         Menu,
@@ -42,6 +44,8 @@ public class UIHandler : MonoBehaviour
         gotomenuBtn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnGotoMenu());
         gotomenu1Btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnGotoMenu());
         restartBtn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnReStartGame());
+        gotomenu2Btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>MainManager.Instance.OnGotoMenu());
+        backBtn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>new CloseGameMenuEventDecorate());
     }
 }
 

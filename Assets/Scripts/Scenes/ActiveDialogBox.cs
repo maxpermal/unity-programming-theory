@@ -6,6 +6,7 @@ public class ActiveDialogBox : MonoBehaviour
 {
     public GameObject gameover;
     public GameObject victory;
+    public GameObject options;
     public GameObject dlgBox;
 
     public void SetActive(string which, bool value)
@@ -18,6 +19,9 @@ public class ActiveDialogBox : MonoBehaviour
             case "victory":
                 victory.SetActive(value);
                 break;
+            case "options":
+                options.SetActive(value);
+                break;
             case "dlgBox":
                 dlgBox.SetActive(value);
                 break;
@@ -29,6 +33,7 @@ public class ActiveDialogBox : MonoBehaviour
         gameover.SetActive(false);
         victory.SetActive(false);
         dlgBox.SetActive(false);
+        options.SetActive(false);
     }
 
     public void QuitGame()
@@ -36,5 +41,6 @@ public class ActiveDialogBox : MonoBehaviour
         gameover.SetActive(false);
         victory.SetActive(false);
         dlgBox.SetActive(false);
+        options.SetActive(false);
     }
 }

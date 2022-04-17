@@ -11,6 +11,7 @@ namespace Game.Core
 
         public static void Schedule(GameEvent ev)
         {
+            // Debug.Log("queue event " + ev.Name);
             ev.tick = Time.time;
             events.Enqueue(ev);
         }

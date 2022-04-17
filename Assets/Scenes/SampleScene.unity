@@ -469,58 +469,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 225617647}
     m_Modifications:
-    - target: {fileID: 1201096676, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_Name
-      value: GotoMenu button
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201096678, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 615397478}
-    - target: {fileID: 1201096678, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201096678, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnGotoMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201096678, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253508530, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_Name
-      value: Restart button
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253508532, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253508532, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253508532, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427367645609216726, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 615397478}
-    - target: {fileID: 2427367645609216726, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnGotoMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427367645609216726, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550755998090815619, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
-      propertyPath: m_Name
-      value: GotoMenu button(1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8354204783488289611, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -626,6 +574,41 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6550755998090815619, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
   m_PrefabInstance: {fileID: 138598619}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &138598623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1443730150, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
+  m_PrefabInstance: {fileID: 138598619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &138598624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 446074405, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
+  m_PrefabInstance: {fileID: 138598619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &138598625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8354204783488289611, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
+  m_PrefabInstance: {fileID: 138598619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &138598626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138598625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f042c86d47d265247a0b15175124aadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startBtn: {fileID: 0}
+  quitBtn: {fileID: 0}
+  gotomenuBtn: {fileID: 138598620}
+  gotomenu1Btn: {fileID: 138598622}
+  restartBtn: {fileID: 138598621}
+  gotomenu2Btn: {fileID: 138598624}
+  backBtn: {fileID: 138598623}
+  scene: 1
 --- !u!4 &148450657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d8ea93d2d4757e444a5349f4bc849128, type: 3}
@@ -701,7 +684,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225617647}
-  - component: {fileID: 225617648}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -725,24 +707,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &225617648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225617646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f042c86d47d265247a0b15175124aadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startBtn: {fileID: 0}
-  quitBtn: {fileID: 0}
-  gotomenuBtn: {fileID: 138598620}
-  gotomenu1Btn: {fileID: 138598622}
-  restartBtn: {fileID: 138598621}
-  scene: 1
 --- !u!224 &250679417 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8354204783488289615, guid: d690157bef3d6e24ca298b47c152f26d, type: 3}
@@ -1308,17 +1272,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fba358e5791fbd4439b0bd3d6f25beb7, type: 3}
---- !u!114 &615397478 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 360986748535970558, guid: fba358e5791fbd4439b0bd3d6f25beb7, type: 3}
-  m_PrefabInstance: {fileID: 615397477}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf36705eb0d8214a8c61f5a4ab832d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &636357545
 GameObject:
   m_ObjectHideFlags: 0

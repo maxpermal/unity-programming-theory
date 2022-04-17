@@ -17,5 +17,9 @@ public class PlayerController : ActorController
         inputs.vertical = Input.GetAxis("Vertical");
         inputs.horizontal = Input.GetAxis("Horizontal");
         inputs.attack = Input.GetKeyDown(KeyCode.LeftControl);
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            new OpenGameMenuEventDecorate();
+        }
     }
 }
